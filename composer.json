@@ -1,0 +1,15 @@
+{
+    "name": "gioppy/yaml-content",
+    "description": "Laravel package for manage static content saved on YAML file",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Giovanni Buffa",
+            "email": "tech@giovannibuffa.it"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "orchestra/testbench": "3.8"
+    }
+}
