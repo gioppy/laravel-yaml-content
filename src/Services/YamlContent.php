@@ -54,6 +54,16 @@ class YamlContent implements YamlContentContract {
   }
 
   /**
+   * Parse generic YAML file, outside of Storage driver
+   *
+   * @param string $file
+   * @return mixed
+   */
+  public static function parseFile(string $file) {
+    return Yaml::parseFile($file);
+  }
+
+  /**
    * @inheritDoc
    */
   public function index() {
