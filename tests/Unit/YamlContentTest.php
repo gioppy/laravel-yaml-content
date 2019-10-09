@@ -208,4 +208,17 @@ class YamlContentTest extends TestCase {
 
     $this->assertEquals('New test', $index[$uuid]);
   }
+
+  public function testYamlContentParseGenericYaml() {
+    Storage::fake($this->config['storage']);
+
+    $yamlContent = new YamlContent();
+    $yamlContent->setConfiguration($this->config);
+
+    $file = __DIR__.'/../stubs/generic.yaml';
+    $parsed = $yamlContent::parseFile($file);
+
+    $this->assertIsArray($parsed);
+    $this->assertArrayHasKey('title', $parsed);
+  }
 }
