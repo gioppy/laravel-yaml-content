@@ -8,8 +8,27 @@
             "email": "tech@giovannibuffa.it"
         }
     ],
-    "require": {},
+    "require": {
+        "symfony/yaml": "^4.3"
+    },
     "require-dev": {
         "orchestra/testbench": "3.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "gioppy\\YamlContent\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "gioppy\\YamlContent\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "gioppy\\YamlContent\\Providers\\YamlContentProvider"
+            ]
+        }
     }
 }
