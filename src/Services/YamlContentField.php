@@ -123,7 +123,7 @@ class YamlContentField implements YamlContentFieldContract {
   public function uploadFile(UploadedFile $file, string $path = '', string $name = '') {
     $this->deleteFile($name);
 
-    $savedFiles = Storage::disk('public')->files($path);
+    $savedFiles = Storage::disk($this->configuration['public_disk'])->files($path);
 
     // separate file name and file extension
     $fileName = preg_replace('/\.[^.\s]{3,4}$/', '', $file->getClientOriginalName());
@@ -144,10 +144,10 @@ class YamlContentField implements YamlContentFieldContract {
         $fileNewName = $fileName . '_' . ($lastNumber + 1) . $fileExt[0];
       }
 
-      return Storage::disk('public')->putFileAs($path, $file, $fileNewName);
+      return Storage::disk($this->configuration['public_disk'])->putFileAs($path, $file, $fileNewName, 'public');
     }
 
-    return Storage::disk('public')->putFileAs($path, $file, $file->getClientOriginalName());
+    return Storage::disk($this->configuration['public_disk'])->putFileAs($path, $file, $file->getClientOriginalName(), 'public');
   }
 
   /**
