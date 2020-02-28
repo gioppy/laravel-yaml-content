@@ -32,7 +32,8 @@ class YamlContentTest extends TestCase {
         'value' => 'title'
       ],
       // array key name where stored fields
-      'fields_key' => 'form'
+      'fields_key' => 'form',
+      'public_disk' => 'public',
     ];
   }
 
